@@ -26,8 +26,6 @@ def filterPageList(redirect):
         clubList = browser.find_elements_by_class_name("innerListing")
         clubs = clubList[0].find_elements_by_xpath(".//li")
         cp = clubs[c].find_elements_by_xpath(".//a")
-        # url = cp[0].get_attribute("href")
-        # browser.execute_script(f"window.open({url});")
         browser.get(cp[0].get_attribute("href"))
         try:
             name = browser.find_element_by_tag_name("h1").text
@@ -48,7 +46,6 @@ def filterPageList(redirect):
 
 def main():
     for i in range(1,8):
-        # time.sleep(1)
         filterPageList(switchPage(i))
 
 main()
